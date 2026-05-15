@@ -47,6 +47,7 @@ class TeamController extends Controller
         $team->load(['users' => fn ($query) => $query->orderBy('name')]);
 
         $todos = $team->todos()
+            ->whereNull('project_id')
             ->orderBy('is_done')
             ->orderByRaw('due_date is null')
             ->orderBy('due_date')

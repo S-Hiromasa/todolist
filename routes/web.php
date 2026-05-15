@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,7 @@ Route::middleware('auth')->group(function (): void {
     Route::get('admin/users', [AdminUserController::class, 'index'])->name('admin.users.index');
     Route::resource('teams', TeamController::class)->only(['index', 'create', 'store', 'show']);
     Route::post('teams/{team}/invite', [TeamController::class, 'invite'])->name('teams.invite');
+    Route::resource('projects', ProjectController::class)->only(['index', 'create', 'store', 'show']);
     Route::patch('todos/{todo}/toggle', [TodoController::class, 'toggle'])->name('todos.toggle');
     Route::resource('todos', TodoController::class)->except(['show']);
 });

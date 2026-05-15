@@ -12,6 +12,7 @@
                 <a class="brand" href="{{ route('todos.index') }}">ToDo List</a>
                 <div class="auth-links">
                     @auth
+                        <a href="{{ route('projects.index') }}">プロジェクト</a>
                         <a href="{{ route('teams.index') }}">チーム</a>
                         @if (auth()->user()->is_admin)
                             <a href="{{ route('admin.users.index') }}">ユーザー管理</a>
