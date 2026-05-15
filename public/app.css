@@ -233,6 +233,10 @@ button:hover {
     padding: 22px;
 }
 
+.stack {
+    margin-bottom: 18px;
+}
+
 .field {
     display: grid;
     gap: 8px;
@@ -244,7 +248,8 @@ button:hover {
 }
 
 .field input,
-.field textarea {
+.field textarea,
+.field select {
     width: 100%;
     border: 1px solid var(--border);
     border-radius: 8px;

@@ -32,6 +32,6 @@
 </label>
 
 <div class="form-actions">
-    <a class="button secondary" href="{{ route('todos.index') }}">キャンセル</a>
+    <a class="button secondary" href="{{ $todo?->team_id ? route('teams.show', $todo->team_id) : route('todos.index') }}">キャンセル</a>
     <button type="submit">保存</button>
 </div>
