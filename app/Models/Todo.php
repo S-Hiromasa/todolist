@@ -10,12 +10,19 @@ class Todo extends Model
 {
     use HasFactory;
 
+    public const STATUS_TODO = 'todo';
+    public const STATUS_DOING = 'doing';
+    public const STATUS_DONE = 'done';
+
     protected $fillable = [
         'user_id',
         'team_id',
+        'project_id',
+        'assignee_id',
         'title',
         'description',
         'is_done',
+        'status',
         'due_date',
     ];
 
@@ -35,5 +42,15 @@ class Todo extends Model
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
+    }
+
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function assignee(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'assignee_id');
     }
 }

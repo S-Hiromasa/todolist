@@ -5,6 +5,9 @@
 
     <form class="form-panel" method="POST" action="{{ route('todos.store') }}">
         @csrf
+        @if ($project)
+            <input name="project_id" type="hidden" value="{{ $project->id }}">
+        @endif
         @if ($team)
             <input name="team_id" type="hidden" value="{{ $team->id }}">
         @endif
